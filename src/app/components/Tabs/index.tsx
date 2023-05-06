@@ -9,8 +9,8 @@ const Tabs = (tabs: TabsProps<HtmlHTMLAttributes<HTMLDivElement>>[]) => {
     return (
         <div className="w-full">
             {
-                tabs.map(tab => (
-                    <div {...tab?.tabProps}>
+                tabs.map((tab, i) => (
+                    <div key={i} {...tab?.tabProps}>
                         <p>{tab.children}</p>
                     </div>
                 ))
