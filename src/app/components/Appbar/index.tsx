@@ -42,9 +42,7 @@ const AppBar = ({ tabs = InitialTabs }: IAppBarProps) => {
     useEffect(() => {
         document.addEventListener('mousedown', handleClickAppBar)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        console.log('asiodfjwerasfjioer');
-
-    }, [RefBar])
+    }, [RefBar, handleClickAppBar])
 
     return (
         <>
@@ -70,8 +68,8 @@ const AppBar = ({ tabs = InitialTabs }: IAppBarProps) => {
                         <p className='text-main'>Usuário Principal</p>
                     </div>
                     <div className='divide-y divide-solid border-gray-600 divide-gray-600 border-y'>
-                        {tabs.map((tab) => (
-                            <div className='h-12'>
+                        {tabs.map((tab,i) => (
+                            <div className='h-12' key={i}>
                                 <button className='h-full w-full px-6 py-3 flex gap-3 items-center' {...tab?.tabProps} >
                                     {tab.children}
                                 </button>
