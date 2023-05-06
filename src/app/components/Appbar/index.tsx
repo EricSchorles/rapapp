@@ -39,16 +39,11 @@ const AppBar = ({ tabs = InitialTabs }: IAppBarProps) => {
         }
     }
 
-    useEffect(() => {
-        document.addEventListener('mousedown', handleClickAppBar)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [RefBar, handleClickAppBar])
-
     return (
         <>
             <header className='h-[10vh]'>
                 <div className="px-6 z-10 black h-[10vh] items-center flex absolute w-full">
-                    <button className='pr-6' onClick={() => setMenuOpen(!menuOpen)} ref={RefBar}>
+                    <button className='pr-6' onClick={() => setMenuOpen(!menuOpen)} ref={RefBar} onMouseLeave={handleClickAppBar}>
                         <Menu className='w-6 h-6' />
                     </button>
                     <div className='justify-between flex w-full'>
